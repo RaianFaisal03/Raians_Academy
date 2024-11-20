@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raians Academy</title>
+  <style>
+    /* Importing Roboto font from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    /* Pale white background */
+    body {
+      background-color: #f8f8f8;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* Loading screen style */
+    .loading-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8f8f8;
+      z-index: 1000;
+      font-size: 72px;
+      color: #333;
+      font-family: Georgia, serif;
+      animation: fadeOut 1s ease-in-out forwards;
+      animation-delay: 2s;
+    }
+
+    .loading-screen div {
+      text-align: center;
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #ffd700;
+      padding: 1em;
+      position: sticky;
+      top: 0;
+      z-index: 500;
+    }
+
+    .hamburger {
+      cursor: pointer;
+      font-size: 1.5em;
+      margin-right: 1em;
+    }
+
+    .navbar-center {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar-center a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-left: 1.5em;
+      transition: color 0.3s;
+    }
+
+    .navbar-center a:hover {
+      color: #555;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-right a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-left: 1em;
+    }
+
+    .cart-icon {
+      font-size: 1.5em;
+    }
+
+    /* Sidebar menu */
+    .sidebar {
+      position: fixed;
+      top: 0; left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      padding-top: 2em;
+      transition: left 0.3s;
+      z-index: 1001;
+    }
+
+    .sidebar h1 {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      font-weight: bold;
+      color: orange;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 1em;
+      color: orange;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #555;
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    .sidebar a.lets-learn-more {
+      font-size: 1.2rem;
+      color: cyan;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .backward-arrow {
+      font-size: 1.5em;
+      color: white;
+      cursor: pointer;
+      margin-left: 1em;
+      transition: transform 0.3s;
+    }
+
+    .backward-arrow:hover {
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    /* Main menu buttons */
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+      margin: 2em;
+    }
+
+    .menu button {
+      color: white;
+      border: none;
+      padding: 2em 4em;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    #my-courses-btn {
+      background-image: linear-gradient(to right, #f44336, #ff7961); /* Gradient red */
+    }
+
+    #books-btn {
+      background-image: linear-gradient(to right, #2196f3, #64b5f6); /* Gradient blue */
+    }
+
+    #tutor-btn {
+      background-image: linear-gradient(to right, #ff9800, #ffc947); /* Gradient orange */
+    }
+
+    #mentor-btn {
+      background-image: linear-gradient(to right, #9c27b0, #ce93d8); /* Gradient purple */
+    }
+
+    #learn-more-btn {
+      background-image: linear-gradient(to right, #00bcd4, #4dd0e1); /* Gradient cyan */
+    }
+
+    #come-back-to-ALLAH-btn {
+      background-image: linear-gradient(to right, #f44336, #e57373); /* Gradient red */
+    }
+
+    .menu button:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5em;
+      background-color: #333;
+      color: white;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar-center a, .navbar-right a {
+        font-size: 1rem;
+        margin-left: 1em;
+      }
+
+      .menu button {
+        padding: 1.5em 3em;
+        font-size: 1.2rem;
+      }
+
+      .menu {
+        gap: 1.5em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hamburger {
+        font-size: 1.2em;
+      }
+
+      .navbar-center a, .navbar-right a {
+        font-size: 0.9rem;
+      }
+
+      .menu button {
+        padding: 1em 2em;
+        font-size: 1rem;
+      }
+    }
+</style>
+
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <div>
+      <div>Welcome</div>
+      <div>to</div>
+      <div>Raians Academy</div>
+    </div>
+  </div>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar" id="sidebar">
+    <span class="backward-arrow" onclick="toggleSidebar()">←</span>
+    <h1>Raians Academy</h1>
+    <a href="my-courses.html">📝 My Courses</a>
+    <a href="Classes.html">Classes</a>
+    <a href="Exams_hsc.html">Exams</a>
+    <a href="https://www.phyhunt.com/course/combo-courses/pr3phmath/">Tutor</a>
+    <a href="#">Mentor</a>
+    <a href="#">Books</a>
+    <a href="#">Settings</a>
+    <a href="#">Rate Us</a>
+    <a href="#">Write to Us</a>
+    <a href="#" class="lets-learn-more">Let's Learn More</a>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <span class="hamburger" onclick="toggleSidebar()">☰</span>
+    <div class="navbar-center">
+      <a href="#">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Routine</a>
+    </div>
+    <div class="navbar-right">
+      <a href="#">👤</a>
+      <a href="#" class="cart-icon">🛒</a>
+    </div>
+  </div>
+
+  <!-- Main Menu -->
+  <div class="menu">
+    <button id="my-courses-btn" onclick="location.href='my-courses.html'">📘 My Courses</button>
+    <button id="books-btn">📚 Books</button>
+    <a href="https://www.phyhunt.com/course/combo-courses/pr3phmath/"><button id="tutor-btn">💡Tutor</button></a>
+    <button id="mentor-btn">☕ Mentor</button>
+    <button id="learn-more-btn">🛒 Let's Learn More</button>
+    <a href="#"><button id="come-back-to-ALLAH-btn">Come Back to ALLAH</button></a>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

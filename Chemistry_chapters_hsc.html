@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chemistry Chapters</title>
+  <style>
+    /* Importing Roboto font from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    /* Pale white background */
+    body {
+      background-color: #f8f8f8;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensures the footer stays at the bottom */
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #ffd700;  /* Golden background */
+      padding: 1em;
+      position: sticky;
+      top: 0;
+      z-index: 500;
+    }
+
+    .hamburger {
+      cursor: pointer;
+      font-size: 1.5em;
+      margin-right: 1em;
+    }
+
+    .navbar-center {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar-center a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-left: 1.5em;
+      transition: color 0.3s;
+    }
+
+    .navbar-center a:hover {
+      color: #555;
+    }
+
+    .navbar-right a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-left: 1em;
+    }
+
+    .cart-icon {
+      font-size: 1.5em;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0; left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      padding-top: 2em;
+      transition: left 0.3s;
+      z-index: 1001;
+    }
+
+    .sidebar h1 {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      font-weight: bold;
+      color: orange;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 1em;
+      color: orange;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #555;
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+      /* Backward arrow for closing the sidebar */
+      .backward-arrow {
+      font-size: 1.5em;
+      color: white;
+      cursor: pointer;
+      margin-left: 1em;
+      transition: transform 0.3s;
+    }
+
+    .backward-arrow:hover {
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    /* Chapter buttons container */
+    .chapters-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 2em auto;
+      max-width: 1200px;
+      gap: 1em;
+    }
+
+    .chapter-button {
+      width: 30%; /* Ensures 3 buttons per row */
+      margin-bottom: 1.5em;
+      padding: 1em 2em;
+      font-size: 1.2rem;
+      color: white;
+      text-align: center;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .chapter-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Unique button colors for each chapter */
+    .chapter1 { background-color: #ff6347; } /* Safe use up Laboratory */
+    .chapter2 { background-color: #4682b4; } /* Qualitative Chemistry */
+    .chapter3 { background-color: #32cd32; } /* Periodic Properties */
+    .chapter4 { background-color: #ff8c00; } /* Chemical Changes */
+    .chapter5 { background-color: #6a5acd; } /* Vocational Chemistry */
+    .chapter6 { background-color: #d2691e; } /* Environment Chemistry */
+    .chapter7 { background-color: #8a2be2; } /* Organic Chemistry */
+    .chapter8 { background-color: #20b2aa; } /* Quantitative Chemistry */
+    .chapter9 { background-color: #ff1493; } /* Electrochemistry */
+    .chapter10 { background-color: #640665; } /* Economic Chemistry */
+
+    /* Footer removed by TOPU */
+   
+    
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar" id="sidebar">
+    <span class="backward-arrow" onclick="toggleSidebar()">←</span>
+    <h1>Raians Academy</h1>
+    <a href="my-courses.html">📝 My Courses</a>
+    <a href="Classes.html">Classes</a>
+    <a href="Exams_hsc.html">Exams</a>
+    <a href="#">Tutor</a>
+    <a href="#">Mentor</a>
+    <a href="#">Books</a>
+    <a href="#">Settings</a>
+    <a href="#">Rate Us</a>
+    <a href="#">Write to Us</a>
+    <a href="#" class="lets-learn-more">Let's Learn More</a>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <span class="hamburger" onclick="toggleSidebar()">☰</span>
+    <div class="navbar-center">
+      <a href="index.html">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Routine</a>
+    </div>
+    <div class="navbar-right">
+      <a href="#">👤</a>
+      <a href="#" class="cart-icon">🛒</a>
+    </div>
+  </div>
+
+  <!-- Chapter Buttons -->
+  <div class="chapters-container">
+    <button class="chapter-button chapter1">Safe use up Laboratory</button>
+    <button class="chapter-button chapter2">Qualitative Chemistry</button>
+    <button class="chapter-button chapter3">Periodic Properties and Chemical Bonding of Elements</button>
+    <button class="chapter-button chapter4">Chemical Changes</button>
+    <button class="chapter-button chapter5">Vocational Chemistry</button>
+    <button class="chapter-button chapter6">Environment Chemistry</button>
+    <button class="chapter-button chapter7">Organic Chemistry</button>
+    <button class="chapter-button chapter8">Quantitative Chemistry</button>
+    <button class="chapter-button chapter9">Electrochemistry</button>
+    <button class="chapter-button chapter10">Economic Chemistry</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    
+  </footer>
+
+  <script>
+    // Toggle sidebar visibility
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

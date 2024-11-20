@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raians Academy - Freebies</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    body {
+      background-color: #f8f8f8;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #ffd700;
+      padding: 1em;
+      position: sticky;
+      top: 0;
+      z-index: 500;
+    }
+
+    .hamburger {
+      cursor: pointer;
+      font-size: 1.5em;
+      margin-right: 1em;
+    }
+
+    .navbar-center {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar-center a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-left: 1em;
+      transition: color 0.3s;
+    }
+
+    .navbar-right a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      margin-left: 1em;
+    }
+
+    .cart-icon {
+      font-size: 1.5em;
+    }
+
+    /* Sidebar */
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0; left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      padding-top: 2em;
+      transition: left 0.3s;
+      z-index: 1001;
+    }
+
+    .sidebar h1 {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      font-weight: bold;
+      color: orange;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 1em;
+      color: orange;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #555;
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+      /* Backward arrow for closing the sidebar */
+      .backward-arrow {
+      font-size: 1.5em;
+      color: white;
+      cursor: pointer;
+      margin-left: 1em;
+      transition: transform 0.3s;
+    }
+
+    .backward-arrow:hover {
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    /* Cards Container */
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5em;
+      padding: 2em;
+    }
+
+    .card {
+      background-color: #fff;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 2em;
+      text-align: center;
+      flex: 1 1 calc(300px - 1em); /* Responsive width */
+      max-width: 300px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5em;
+    }
+
+    .card button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 0.8em 1.5em;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .navbar-center a, .navbar-right a {
+        font-size: 0.9rem;
+        margin-left: 0.5em;
+      }
+
+      .card h2 {
+        font-size: 1.2rem;
+      }
+
+      .card button {
+        font-size: 0.9rem;
+        padding: 0.6em 1.2em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        flex-wrap: wrap;
+        text-align: center;
+      }
+
+      .hamburger {
+        margin: 0.5em 0;
+      }
+
+      .navbar-center {
+        justify-content: center;
+      }
+
+      .cards-container {
+        gap: 1em;
+      }
+
+      .card {
+        padding: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar" id="sidebar">
+    <span class="backward-arrow" onclick="toggleSidebar()">←</span>
+    <h1>Raians Academy</h1>
+    <a href="my-courses.html">📝 My Courses</a>
+    <a href="Classes.html">Classes</a>
+    <a href="Exams_hsc.html">Exams</a>
+    <a href="#">Tutor</a>
+    <a href="#">Mentor</a>
+    <a href="#">Books</a>
+    <a href="#">Settings</a>
+    <a href="#">Rate Us</a>
+    <a href="#">Write to Us</a>
+    <a href="#" class="lets-learn-more">Let's Learn More</a>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <span class="hamburger" onclick="toggleSidebar()">☰</span>
+    <div class="navbar-center">
+      <a href="index.html">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Routine</a>
+    </div>
+    <div class="navbar-right">
+      <a href="#">👤</a>
+      <a href="#" class="cart-icon">🛒</a>
+    </div>
+  </div>
+
+  <!-- Freebies Cards -->
+  <div class="cards-container">
+    <div class="card">
+      <h2>Classes</h2>
+      <a href="Classes.html"><button>Take Classes</button></a>
+    </div>
+    <div class="card">
+      <h2>Exams</h2>
+      <a href="Exams_hsc.html"><button>Take Exam</button></a>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

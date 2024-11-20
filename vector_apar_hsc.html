@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vector_Apar</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    body {
+      background-color: #f8f8f8;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #ffd700;
+      padding: 1em;
+      position: sticky;
+      top: 0;
+      z-index: 500;
+    }
+    .hamburger {
+      cursor: pointer;
+      font-size: 1.5em;
+      margin-right: 1em;
+    }
+    .navbar-center {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .navbar-center a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-left: 1.5em;
+      transition: color 0.3s;
+    }
+    .navbar-center a:hover {
+      color: #555;
+    }
+    .navbar-right a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-left: 1em;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      position: fixed;
+      top: 0; left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      padding-top: 2em;
+      transition: left 0.3s;
+      z-index: 1001;
+    }
+    .sidebar h1 {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      font-weight: bold;
+      color: orange;
+    }
+    .sidebar a {
+      display: block;
+      padding: 1em;
+      color: orange;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .sidebar a:hover {
+      background-color: #555;
+      transform: scale(1.1) translateY(-5px);
+    }
+    .sidebar.open {
+      left: 0;
+    }
+    .backward-arrow {
+      font-size: 1.5em;
+      color: white;
+      cursor: pointer;
+      margin-left: 1em;
+      transition: transform 0.3s;
+    }
+    .backward-arrow:hover {
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    /* Videos Section */
+    .videos-container {
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2em;
+    }
+    .video-card {
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      padding: 1.5em;
+      width: 90%;
+      max-width: 1000px;
+      text-align: center;
+    }
+    .video-card iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 10px;
+    }
+    .video-card p {
+      margin-top: 1em;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .video-card iframe {
+        height: 300px;
+      }
+      .videos-container {
+        padding: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <span class="backward-arrow" onclick="toggleSidebar()">←</span>
+    <h1>Raians Academy</h1>
+    <a href="my-courses.html">My Courses</a>
+    <a href="Classes.html">Classes</a>
+    <a href="Exams_hsc.html">Exams</a>
+    <a href="#">Tutor</a>
+    <a href="#">Mentor</a>
+    <a href="#">Books</a>
+    <a href="#">Settings</a>
+    <a href="#">Rate Us</a>
+    <a href="#">Write to Us</a>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <span class="hamburger" onclick="toggleSidebar()">☰</span>
+    <div class="navbar-center">
+      <a href="index.html">Home</a>
+      <a href="#">Blog</a>
+      <a href="https://docs.google.com/spreadsheets/d/1lrARe0KmkXWm4PAfmqktoAVkX_ClrRSYQYFxlsmNA9s/edit?fbclid=IwY2xjawGYj0pleHRuA2FlbQIxMAABHV0EeZdQyNej9WsjDzJwAob_M3tjxAf2oZrgYDC90m9Bo8gRzLbs_kcP0w_aem_P_HPrxUcJ1rEEeUX5mRbRQ&gid=2118841264#gid=2118841264">Routine</a>
+    </div>
+    <div class="navbar-right">
+      <a href="#">👤</a>
+      <a href="#">🛒</a>
+    </div>
+  </div>
+
+ <!-- Videos Section -->
+<div class="videos-container">
+  <!-- Existing Videos -->
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/TxqUEypS7RY?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 1</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/6O5RLquav4M?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 2</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/hfQ-o8q6CKE?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 3</p>
+  </div>
+  
+  <!-- New Videos -->
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/gfgHGAJl4sM?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 4</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/-8N7yeDwYos?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 5</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/Zz4XS4L6IY0?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 6</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/3wf_yLxBmWU?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 7</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/cp78DmjB_ng?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 8</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/vzNFtJUZvGE?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 9</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/Jrmljmq1nzM?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 10</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/9yqN9DhXLMg?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 11</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/AiHAiRRTsbk?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 12</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/Bjob97YHlCc?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 13</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/ZL8ehWTFl3o?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 14</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/T94LLQPdPyQ?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 15</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/TmC7Ii059Rk?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 16</p>
+  </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/Lp-7k6Zs21k?list=PL17Gl6E0YNz-1FL9figU88FDOIgL0TM3G" allowfullscreen></iframe>
+    <p>Vector Class 17</p>
+  </div>
+</div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

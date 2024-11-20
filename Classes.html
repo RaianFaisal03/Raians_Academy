@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raians Academy - Freebies_Classes</title>
+  <style>
+    /* Importing Roboto font from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    /* Pale white background */
+    body {
+      background-color: #f8f8f8;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #ffd700;
+      padding: 1em;
+      position: sticky;
+      top: 0;
+      z-index: 500;
+    }
+
+    .hamburger {
+      cursor: pointer;
+      font-size: 1.5em;
+      margin-right: 1em;
+    }
+
+    .navbar-center {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar-center a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-left: 1.5em;
+      transition: color 0.3s;
+    }
+
+    .navbar-center a:hover {
+      color: #555;
+    }
+
+    .navbar-right a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-left: 1em;
+    }
+
+    .cart-icon {
+      font-size: 1.5em;
+    }
+
+    /* Sidebar menu */
+    .sidebar {
+      position: fixed;
+      top: 0; left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      padding-top: 2em;
+      transition: left 0.3s;
+      z-index: 1001;
+    }
+
+    .sidebar h1 {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      font-weight: bold;
+      color: orange;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 1em;
+      color: orange;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #555;
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .backward-arrow {
+      font-size: 1.5em;
+      color: white;
+      cursor: pointer;
+      margin-left: 1em;
+      transition: transform 0.3s;
+    }
+
+    .backward-arrow:hover {
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    /* Cards container */
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin: 2em auto;
+      max-width: 1200px;
+    }
+
+    .card {
+      width: 40%;
+      padding: 2em;
+      background-color: #fff;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 15px;
+      margin: 1em;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card h2 {
+      font-size: 1.8em;
+      margin-bottom: 1.5em;
+    }
+
+    .card button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.7em 1.5em;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card button:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5em;
+      background-color: #333;
+      color: white;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar Menu -->
+  <div class="sidebar" id="sidebar">
+    <span class="backward-arrow" onclick="toggleSidebar()">←</span>
+    <h1>Raians Academy</h1>
+    <a href="#">📝 My Courses</a>
+    <a href="Classes.html">Classes</a>
+    <a href="Exams_hsc.html">Exams</a>
+    <a href="#">Tutor</a>
+    <a href="#">Mentor</a>
+    <a href="#">Books</a>
+    <a href="#">Settings</a>
+    <a href="#">Rate Us</a>
+    <a href="#">Write to Us</a>
+    <a href="#" class="lets-learn-more">Let's Learn More</a>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <span class="hamburger" onclick="toggleSidebar()">☰</span>
+    <div class="navbar-center">
+      <a href="index.html">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Routine</a>
+    </div>
+    <div class="navbar-right">
+      <a href="#">👤</a>
+      <a href="#" class="cart-icon">🛒</a>
+    </div>
+  </div>
+
+  <!-- Classes Cards -->
+  <div class="cards-container">
+    <div class="card">
+      <h2>Physics</h2>
+      <a href="Physics_chapters_hsc.html"><button>Take Class</button></a>
+    </div>
+    <div class="card">
+        <h2>Chemistry</h2>
+        <a href="Chemistry_chapters_hsc.html"><button>Take Class</button></a>
+      </div>
+      
+    <div class="card">
+      <h2>Higher Math</h2>
+      <a href="HigherMath_chapters_hsc.html"><button>Take Class</button></a>
+    </div>
+    <div class="card">
+      <h2>Biology</h2>
+      <a href="Biology_chapters_hsc.html"><button>Take Class</button></a>
+    </div>
+  </div>
+
+  <!-- Footer removed by Topu -->
+  
+
+  <script>
+    // Toggle sidebar visibility
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
