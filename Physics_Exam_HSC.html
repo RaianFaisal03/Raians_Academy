@@ -5,25 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Physics Exams</title>
   <style>
-    /* Importing Roboto font from Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-    /* Pale white background */
     body {
       background-color: #f8f8f8;
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh; /* Ensures the footer stays at the bottom */
     }
 
-    /* Navbar */
-    .navbar {
+      /* Navbar */
+      .navbar {
       display: flex;
       align-items: center;
-      background-color: #ffd700;  /* Golden background */
+      background-color: #ffd700;
       padding: 1em;
       position: sticky;
       top: 0;
@@ -55,6 +50,11 @@
       color: #555;
     }
 
+    .navbar-right {
+      display: flex;
+      align-items: center;
+    }
+
     .navbar-right a {
       text-decoration: none;
       color: black;
@@ -67,7 +67,7 @@
       font-size: 1.5em;
     }
 
-    /* Sidebar */
+    /* Sidebar menu */
     .sidebar {
       position: fixed;
       top: 0; left: -250px;
@@ -103,10 +103,15 @@
       transform: scale(1.1) translateY(-5px);
     }
 
+    .sidebar a.lets-learn-more {
+      font-size: 1.2rem;
+      color: cyan;
+    }
+
     .sidebar.open {
       left: 0;
     }
-       /* Backward arrow for closing the sidebar */
+
     .backward-arrow {
       font-size: 1.5em;
       color: white;
@@ -118,27 +123,48 @@
     .backward-arrow:hover {
       transform: scale(1.1) translateY(-5px);
     }
-    /* Chapter buttons container */
+
+    /* Main menu buttons */
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+      margin: 2em;
+    }
+
+    .menu button {
+      color: white;
+      border: none;
+      padding: 2em 4em;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+
     .chapters-container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: center;
       margin: 2em auto;
-      max-width: 1200px;
+      padding: 0 1em;
       gap: 1em;
     }
 
     .chapter-button {
-      width: 30%; /* Ensures 3 buttons per row */
-      margin-bottom: 1.5em;
+      flex: 1 1 calc(30% - 1em);
+      max-width: calc(30% - 1em);
       padding: 1em 2em;
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: white;
       text-align: center;
       border: none;
       border-radius: 25px;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
     }
 
     .chapter-button:hover {
@@ -146,59 +172,86 @@
       box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
     }
 
-    /* Unique button colors for each chapter */
-    .chapter1 { background-color: #ff6347; } /* Physical World and Measurement */
-    .chapter2 { background-color: #4682b4; } /* Vector */
-    .chapter3 { background-color: #32cd32; } /* Dynamics */
-    .chapter4 { background-color: #ff8c00; } /* Newtonian Mechanics */
-    .chapter5 { background-color: #6a5acd; } /* Work, Energy, and Power */
-    .chapter6 { background-color: #d2691e; } /* Gravitation and Gravity */
-    .chapter7 { background-color: #8a2be2; } /* Structural Properties of Matter */
-    .chapter8 { background-color: #20b2aa; } /* Periodic Motion */
-    .chapter9 { background-color: #ff1493; } /* Waves */
-    .chapter10 { background-color: #640665; } /* Ideal Gas and Kinetics of Gases */
-    .chapter11 { background-color: #ff4500; } /* Thermodynamics */
-    .chapter12 { background-color: #1e90ff; } /* Static Electricity */
-    .chapter13 { background-color: #228b22; } /* Current Electricity */
-    .chapter14 { background-color: #8b0000; } /* Magnetic Effect of Electric Current */
-    .chapter15 { background-color: #ffa500; } /* Electromagnetic Induction */
-    .chapter16 { background-color: #4b0082; } /* Geometrical Optics */
-    .chapter17 { background-color: #00ced1; } /* Physical Optics */
-    .chapter18 { background-color: #9400d3; } /* Introduction to Modern Physics */
-    .chapter19 { background-color: #008b8b; } /* Atom Model and Nuclear Physics */
-    .chapter20 { background-color: #ff69b4; } /* Semiconductor and Electronics */
-    .chapter21 { background-color: #006400; } /* Astronomy */
-
-    /* Footer */
+    .chapter1 { background-color: #ff6347; }
+    .chapter2 { background-color: #4682b4; }
+    .chapter3 { background-color: #32cd32; }
+    .chapter4 { background-color: #ff8c00; }
+    .chapter5 { background-color: #6a5acd; }
+    .chapter6 { background-color: #d2691e; }
+    .chapter7 { background-color: #8a2be2; }
+    .chapter8 { background-color: #20b2aa; }
+    .chapter9 { background-color: #ff1493; }
+    .chapter10 { background-color: #640665; }
+    .chapter11 { background-color: #ff4500; }
+    .chapter12 { background-color: #1e90ff; }
+    .chapter13 { background-color: #228b22; }
+    .chapter14 { background-color: #8b0000; }
+    .chapter15 { background-color: #ffa500; }
+    .chapter16 { background-color: #4b0082; }
+    .chapter17 { background-color: #00ced1; }
+    .chapter18 { background-color: #9400d3; }
+    .chapter19 { background-color: #008b8b; }
+    .chapter20 { background-color: #ff69b4; }
+    .chapter21 { background-color: #006400; }
     footer {
       text-align: center;
       padding: 1.5em;
       background-color: #333;
       color: white;
+      position: absolute;
       width: 100%;
-      margin-top: auto; /* Ensures the footer is always at the bottom */
+      bottom: 0;
     }
-  </style>
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar-center a, .navbar-right a {
+        font-size: 1rem;
+        margin-left: 1em;
+      }
+
+      .menu button {
+        padding: 1.5em 3em;
+        font-size: 1.2rem;
+      }
+
+      .menu {
+        gap: 1.5em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hamburger {
+        font-size: 1.2em;
+      }
+
+      .navbar-center a, .navbar-right a {
+        font-size: 0.9rem;
+      }
+
+      .menu button {
+        padding: 1em 2em;
+        font-size: 1rem;
+      }
+    }
+ </style>
 </head>
 <body>
 
-  <!-- Sidebar Menu -->
   <div class="sidebar" id="sidebar">
     <span class="backward-arrow" onclick="toggleSidebar()">←</span>
     <h1>Raians Academy</h1>
     <a href="my-courses.html">📝 My Courses</a>
     <a href="Classes.html">Classes</a>
     <a href="Exams_hsc.html">Exams</a>
-    <a href="#">Tutor</a>
     <a href="#">Mentor</a>
     <a href="#">Books</a>
     <a href="#">Settings</a>
     <a href="#">Rate Us</a>
     <a href="#">Write to Us</a>
-    <a href="#" class="lets-learn-more">Let's Learn More</a>
+    <a href="#">Let's Learn More</a>
   </div>
 
-  <!-- Navbar -->
   <div class="navbar">
     <span class="hamburger" onclick="toggleSidebar()">☰</span>
     <div class="navbar-center">
@@ -212,38 +265,31 @@
     </div>
   </div>
 
-  <!-- Chapter Buttons -->
   <div class="chapters-container">
-    <button class="chapter-button chapter1">Physical World and Measurement</button>
-    <button class="chapter-button chapter2">Vector</button>
-    <button class="chapter-button chapter3">Dynamics</button>
-    <button class="chapter-button chapter4">Newtonian Mechanics</button>
-    <button class="chapter-button chapter5">Work, Energy, and Power</button>
-    <button class="chapter-button chapter6">Gravitation and Gravity</button>
-    <button class="chapter-button chapter7">Structural Properties of Matter</button>
-    <button class="chapter-button chapter8">Periodic Motion</button>
-    <button class="chapter-button chapter9">Waves</button>
-    <button class="chapter-button chapter10">Ideal Gas and Kinetics of Gases</button>
-    <button class="chapter-button chapter11">Thermodynamics</button>
-    <button class="chapter-button chapter12">Static Electricity</button>
-    <button class="chapter-button chapter13">Current Electricity</button>
-    <button class="chapter-button chapter14">Magnetic Effect of Electric Current and Magnetism</button>
-    <button class="chapter-button chapter15">Electromagnetic Induction and Alternating Current</button>
-    <button class="chapter-button chapter16">Geometrical Optics</button>
-    <button class="chapter-button chapter17">Physical Optics</button>
-    <button class="chapter-button chapter18">Introduction to Modern Physics</button>
-    <button class="chapter-button chapter19">Atom Model and Nuclear Physics</button>
-    <button class="chapter-button chapter20">Semiconductor and Electronics</button>
-    <button class="chapter-button chapter21">Astronomy</button>
+    <a href="#" class="chapter-button chapter1">Physical World and Measure-ment</a>
+    <a href="#" class="chapter-button chapter2">Vector</a>
+    <a href="#" class="chapter-button chapter3">Dynamics</a>
+    <a href="#" class="chapter-button chapter4">Newtonian Mechanics</a>
+    <a href="#" class="chapter-button chapter5">Work, Energy, and Power</a>
+    <a href="#" class="chapter-button chapter6">Gravitation and Gravity</a>
+    <a href="#" class="chapter-button chapter7">Structural Properties of Matter</a>
+    <a href="#" class="chapter-button chapter8">Periodic Motion</a>
+    <a href="#" class="chapter-button chapter9">Waves</a>
+    <a href="#" class="chapter-button chapter10">Ideal Gas and Kinetics of Gases</a>
+    <a href="#" class="chapter-button chapter11">Thermodynamics</a>
+    <a href="#" class="chapter-button chapter12">Static Electricity</a>
+    <a href="#" class="chapter-button chapter13">Current Electricity</a>
+    <a href="#" class="chapter-button chapter14">Magnetic Effect of Electric Current</a>
+    <a href="#" class="chapter-button chapter15">Electro magnetic Induction</a>
+    <a href="#" class="chapter-button chapter16">Geometrical Optics</a>
+    <a href="#" class="chapter-button chapter17">Physical Optics</a>
+    <a href="#" class="chapter-button chapter18">Introduction to Modern Physics</a>
+    <a href="#" class="chapter-button chapter19">Atom Model and Nuclear Physics</a>
+    <a href="#" class="chapter-button chapter20">Semi conductor and Electronics</a>
+    <a href="#" class="chapter-button chapter21">Astronomy</a>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    © 2024 Raians Academy. All rights reserved.
-  </footer>
-
   <script>
-    // Toggle sidebar visibility
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       sidebar.classList.toggle('open');
