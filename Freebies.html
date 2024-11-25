@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raians Academy - Freebies</title>
+  <title>My Courses</title>
   <style>
+    /* Reusing styles from the homepage */
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
     body {
       background-color: #f8f8f8;
       font-family: 'Roboto', sans-serif;
       margin: 0;
       overflow-x: hidden;
     }
-
-    /* Navbar */
-    .navbar {
+        /* Navbar */
+        .navbar {
       display: flex;
       align-items: center;
       background-color: #ffd700;
@@ -41,15 +40,25 @@
       text-decoration: none;
       color: black;
       font-weight: bold;
-      font-size: 1rem;
-      margin-left: 1em;
+      font-size: 1.2rem;
+      margin-left: 1.5em;
       transition: color 0.3s;
+    }
+
+    .navbar-center a:hover {
+      color: #555;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
     }
 
     .navbar-right a {
       text-decoration: none;
       color: black;
       font-weight: bold;
+      font-size: 1.2rem;
       margin-left: 1em;
     }
 
@@ -57,8 +66,7 @@
       font-size: 1.5em;
     }
 
-    /* Sidebar */
-    /* Sidebar */
+    /* Sidebar menu */
     .sidebar {
       position: fixed;
       top: 0; left: -250px;
@@ -94,11 +102,16 @@
       transform: scale(1.1) translateY(-5px);
     }
 
+    .sidebar a.lets-learn-more {
+      font-size: 1.2rem;
+      color: cyan;
+    }
+
     .sidebar.open {
       left: 0;
     }
-      /* Backward arrow for closing the sidebar */
-      .backward-arrow {
+
+    .backward-arrow {
       font-size: 1.5em;
       color: white;
       cursor: pointer;
@@ -110,94 +123,90 @@
       transform: scale(1.1) translateY(-5px);
     }
 
-    /* Cards Container */
-    .cards-container {
+    /* Courses section */
+    .courses {
+      padding: 2em;
       display: flex;
       flex-wrap: wrap;
+      gap: 2em;
       justify-content: center;
-      gap: 1.5em;
-      padding: 2em;
     }
-
-    .card {
-      background-color: #fff;
-      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      padding: 2em;
+    .course-card {
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      width: 300px;
+      padding: 1.5em;
       text-align: center;
-      flex: 1 1 calc(300px - 1em); /* Responsive width */
-      max-width: 300px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
-    .card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5em;
+    .course-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
-
-    .card button {
-      background-color: #4caf50;
+    .course-card button {
+      margin-top: 1em;
+      padding: 0.7em 2em;
+      background-color: #a4c812;
       color: white;
       border: none;
-      padding: 0.8em 1.5em;
       font-size: 1rem;
       cursor: pointer;
-      border-radius: 50px;
-      transition: transform 0.3s;
+      border-radius: 30px;
+      transition: background-color 0.3s;
     }
-
-    .card:hover {
-      transform: scale(1.05);
+    .course-card button:hover {
+      background-color: #45a049;
+    }
+    .menu button:hover {
+      transform: scale(1.1);
       box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .card button:hover {
-      transform: scale(1.1);
+    footer {
+      text-align: center;
+      padding: 1.5em;
+      background-color: #333;
+      color: white;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
     }
 
-    /* Media Queries */
+    /* Responsive Styles */
     @media (max-width: 768px) {
       .navbar-center a, .navbar-right a {
-        font-size: 0.9rem;
-        margin-left: 0.5em;
+        font-size: 1rem;
+        margin-left: 1em;
       }
 
-      .card h2 {
+      .menu button {
+        padding: 1.5em 3em;
         font-size: 1.2rem;
       }
 
-      .card button {
-        font-size: 0.9rem;
-        padding: 0.6em 1.2em;
+      .menu {
+        gap: 1.5em;
       }
     }
 
     @media (max-width: 480px) {
-      .navbar {
-        flex-wrap: wrap;
-        text-align: center;
-      }
-
       .hamburger {
-        margin: 0.5em 0;
+        font-size: 1.2em;
       }
 
-      .navbar-center {
-        justify-content: center;
+      .navbar-center a, .navbar-right a {
+        font-size: 0.9rem;
       }
 
-      .cards-container {
-        gap: 1em;
-      }
-
-      .card {
-        padding: 1.5em;
+      .menu button {
+        padding: 1em 2em;
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
-
   <!-- Sidebar Menu -->
   <div class="sidebar" id="sidebar">
     <span class="backward-arrow" onclick="toggleSidebar()">←</span>
@@ -211,9 +220,7 @@
     <a href="#">Settings</a>
     <a href="#">Rate Us</a>
     <a href="#">Write to Us</a>
-    <a href="#" class="lets-learn-more">Let's Learn More</a>
   </div>
-
   <!-- Navbar -->
   <div class="navbar">
     <span class="hamburger" onclick="toggleSidebar()">☰</span>
@@ -227,25 +234,24 @@
       <a href="#" class="cart-icon">🛒</a>
     </div>
   </div>
-
-  <!-- Freebies Cards -->
-  <div class="cards-container">
-    <div class="card">
+  <!-- Courses Section -->
+  <div class="courses">
+    <div class="course-card">
       <h2>Classes</h2>
-      <a href="Classes.html"><button>Take Classes</button></a>
+      <p></p>
+      <button onclick="location.href='Classes.html'">Take Class</button>
     </div>
-    <div class="card">
+    <div class="course-card">
       <h2>Exams</h2>
-      <a href="Exams_hsc.html"><button>Take Exam</button></a>
+      <p></p>
+      <button onclick="location.href='Exams_hsc.html'">Take Exam</button>
     </div>
   </div>
-
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       sidebar.classList.toggle('open');
     }
   </script>
-
 </body>
 </html>
