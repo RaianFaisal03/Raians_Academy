@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raians Academy - Exams</title>
+  <title>Raians Academy - Freebies_Classes</title>
   <style>
     /* Importing Roboto font from Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
@@ -50,6 +50,11 @@
 
     .navbar-center a:hover {
       color: #555;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
     }
 
     .navbar-right a {
@@ -100,6 +105,11 @@
       transform: scale(1.1) translateY(-5px);
     }
 
+    .sidebar a.lets-learn-more {
+      font-size: 1.2rem;
+      color: cyan;
+    }
+
     .sidebar.open {
       left: 0;
     }
@@ -116,53 +126,67 @@
       transform: scale(1.1) translateY(-5px);
     }
 
-    /* Cards container */
-    .cards-container {
+    /* Main menu buttons */
+    .menu {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-evenly;
-      margin: 2em auto;
-      max-width: 1200px;
+      justify-content: center;
+      gap: 2em;
+      margin: 2em;
     }
 
-    .card {
-      width: 40%;
-      padding: 2em;
-      background-color: #fff;
-      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      border-radius: 15px;
-      margin: 1em;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card h2 {
-      font-size: 1.8em;
-      margin-bottom: 1.5em;
-    }
-
-    .card button {
-      background-color: #007bff;
+    .menu button {
       color: white;
       border: none;
-      padding: 0.7em 1.5em;
-      font-size: 1.1rem;
+      padding: 2em 4em;
+      font-size: 1.5rem;
       cursor: pointer;
-      border-radius: 25px;
+      border-radius: 30px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .card:hover {
+
+    /* Cards container */
+    /* Courses section */
+    .courses {
+      padding: 2em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+    }
+    .course-card {
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      width: 300px;
+      padding: 1.5em;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .course-card:hover {
       transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    .course-card button {
+      margin-top: 1em;
+      padding: 0.7em 2em;
+      background-color: #12c88e;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: background-color 0.3s;
+    }
+    .course-card button:hover {
+      background-color: #1c1c1e;
+    }
+    .menu button:hover {
+      transform: scale(1.1);
       box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .card button:hover {
-      transform: scale(1.1);
-      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Footer */
     footer {
       text-align: center;
       padding: 1.5em;
@@ -172,6 +196,38 @@
       width: 100%;
       bottom: 0;
     }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar-center a, .navbar-right a {
+        font-size: 1rem;
+        margin-left: 1em;
+      }
+
+      .menu button {
+        padding: 1.5em 3em;
+        font-size: 1.2rem;
+      }
+
+      .menu {
+        gap: 1.5em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hamburger {
+        font-size: 1.2em;
+      }
+
+      .navbar-center a, .navbar-right a {
+        font-size: 0.9rem;
+      }
+
+      .menu button {
+        padding: 1em 2em;
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -180,7 +236,7 @@
     <span class="backward-arrow" onclick="toggleSidebar()">←</span>
     <h1>Raians Academy</h1>
     <a href="#">📝 My Courses</a>
-    <a href="#">Classes</a>
+    <a href="Classes.html">Classes</a>
     <a href="Exams_hsc.html">Exams</a>
     <a href="#">Tutor</a>
     <a href="#">Mentor</a>
@@ -188,7 +244,7 @@
     <a href="#">Settings</a>
     <a href="#">Rate Us</a>
     <a href="#">Write to Us</a>
-    <a href="#" class="lets-learn-more">Let's Learn More</a>
+  
   </div>
 
   <!-- Navbar -->
@@ -206,30 +262,28 @@
   </div>
 
   <!-- Classes Cards -->
-  <div class="cards-container">
-    <div class="card">
+  <div class="courses">
+    <div class="course-card">
       <h2>Physics</h2>
-      <a href="Physics_Exam_HSC.html"><button>Take Exam</button></a>
+      <a href="Physics_chapters_hsc.html"><button>Take Exam</button></a>
     </div>
-    <div class="card">
+    <div class="course-card">
         <h2>Chemistry</h2>
-        <a href="Chemistry_Exam_HSC.html"><button>Take Exam</button></a>
+        <a href="Chemistry_chapters_hsc.html"><button>Take Exam</button></a>
       </div>
       
-    <div class="card">
+    <div class="course-card">
       <h2>Higher Math</h2>
-      <a href="HigherMath_Exam_HSC.html"><button>Take Exam</button></a>
+      <a href="HigherMath_chapters_hsc.html"><button>Take Exam</button></a>
     </div>
-    <div class="card">
+    <div class="course-card">
       <h2>Biology</h2>
-      <a href="Biology_Exam_HSC.html"><button>Take Exam</button></a>
+      <a href="Biology_chapters_hsc.html"><button>Take Exam</button></a>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    © 2024 Raians Academy. All rights reserved.
-  </footer>
+  <!-- Footer removed by Topu -->
+   
 
   <script>
     // Toggle sidebar visibility
