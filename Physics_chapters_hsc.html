@@ -14,7 +14,8 @@
       padding: 0;
     }
 
-    .navbar {
+      /* Navbar */
+      .navbar {
       display: flex;
       align-items: center;
       background-color: #ffd700;
@@ -49,6 +50,11 @@
       color: #555;
     }
 
+    .navbar-right {
+      display: flex;
+      align-items: center;
+    }
+
     .navbar-right a {
       text-decoration: none;
       color: black;
@@ -61,6 +67,7 @@
       font-size: 1.5em;
     }
 
+    /* Sidebar menu */
     .sidebar {
       position: fixed;
       top: 0; left: -250px;
@@ -96,6 +103,11 @@
       transform: scale(1.1) translateY(-5px);
     }
 
+    .sidebar a.lets-learn-more {
+      font-size: 1.2rem;
+      color: cyan;
+    }
+
     .sidebar.open {
       left: 0;
     }
@@ -111,6 +123,26 @@
     .backward-arrow:hover {
       transform: scale(1.1) translateY(-5px);
     }
+
+    /* Main menu buttons */
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+      margin: 2em;
+    }
+
+    .menu button {
+      color: white;
+      border: none;
+      padding: 2em 4em;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
 
     .chapters-container {
       display: flex;
@@ -161,7 +193,48 @@
     .chapter19 { background-color: #008b8b; }
     .chapter20 { background-color: #ff69b4; }
     .chapter21 { background-color: #006400; }
-  </style>
+    footer {
+      text-align: center;
+      padding: 1.5em;
+      background-color: #333;
+      color: white;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar-center a, .navbar-right a {
+        font-size: 1rem;
+        margin-left: 1em;
+      }
+
+      .menu button {
+        padding: 1.5em 3em;
+        font-size: 1.2rem;
+      }
+
+      .menu {
+        gap: 1.5em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hamburger {
+        font-size: 1.2em;
+      }
+
+      .navbar-center a, .navbar-right a {
+        font-size: 0.9rem;
+      }
+
+      .menu button {
+        padding: 1em 2em;
+        font-size: 1rem;
+      }
+    }
+ </style>
 </head>
 <body>
 
